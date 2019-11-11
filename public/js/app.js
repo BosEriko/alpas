@@ -1993,6 +1993,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var _this = this;
@@ -2000,6 +2010,30 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/users').then(function (res) {
       return _this.users = res.data;
     });
+  },
+  methods: {
+    defaultSort: function defaultSort(e) {
+      var _this2 = this;
+
+      axios.get('/users').then(function (res) {
+        return _this2.users = res.data;
+      });
+    },
+    sortNewest: function sortNewest(e) {
+      this.users.sort(function (a, b) {
+        return a.id - b.id;
+      });
+    },
+    sortOldest: function sortOldest(e) {
+      this.users.sort(function (a, b) {
+        return b.id - a.id;
+      });
+    },
+    filterAdmin: function filterAdmin(e) {
+      this.users = this.users.filter(function (user) {
+        return user.role_id === "2";
+      });
+    }
   },
   data: function data() {
     return {
@@ -37675,28 +37709,76 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", { staticClass: "table-auto w-full" }, [
-    _vm._m(0),
+  return _c("div", [
+    _c("div", { staticClass: "text-center mb-5" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "text-sm mx-3 smooth hover:bg-white bg-teal-600 text-white hover:text-teal-600 font-bold p-3 rounded text-center",
+          on: { click: _vm.defaultSort }
+        },
+        [_vm._v("Default List")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "text-sm mx-3 smooth hover:bg-white bg-teal-600 text-white hover:text-teal-600 font-bold p-3 rounded text-center",
+          on: { click: _vm.sortNewest }
+        },
+        [_vm._v("Newest to Oldest")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "text-sm mx-3 smooth hover:bg-white bg-teal-600 text-white hover:text-teal-600 font-bold p-3 rounded text-center",
+          on: { click: _vm.sortOldest }
+        },
+        [_vm._v("Oldest to Newest")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "text-sm mx-3 smooth hover:bg-white bg-teal-600 text-white hover:text-teal-600 font-bold p-3 rounded text-center",
+          on: { click: _vm.filterAdmin }
+        },
+        [_vm._v("Filter Admin")]
+      )
+    ]),
     _vm._v(" "),
-    _c(
-      "tbody",
-      _vm._l(_vm.users, function(user, index) {
-        return _c("tr", [
-          _c("td", { staticClass: "border px-4 py-2" }, [
-            _vm._v(_vm._s(index + 1))
-          ]),
-          _vm._v(" "),
-          _c("td", { staticClass: "border px-4 py-2" }, [
-            _vm._v(_vm._s(user.name))
-          ]),
-          _vm._v(" "),
-          _c("td", { staticClass: "border px-4 py-2" }, [
-            _vm._v(_vm._s(user.email))
+    _c("table", { staticClass: "table-auto w-full" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.users, function(user) {
+          return _c("tr", [
+            _c("td", { staticClass: "border px-4 py-2" }, [
+              _vm._v(_vm._s(user.id))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border px-4 py-2" }, [
+              _vm._v(_vm._s(user.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border px-4 py-2" }, [
+              _vm._v(_vm._s(user.email))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border px-4 py-2 text-center" }, [
+              _vm._v(_vm._s(user.role_id === "2" ? "✔" : ""))
+            ])
           ])
-        ])
-      }),
-      0
-    )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -37710,7 +37792,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "px-4 py-2" }, [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", { staticClass: "px-4 py-2" }, [_vm._v("Email")])
+        _c("th", { staticClass: "px-4 py-2" }, [_vm._v("Email")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "px-4 py-2" }, [_vm._v("Admin Rights")])
       ])
     ])
   }
