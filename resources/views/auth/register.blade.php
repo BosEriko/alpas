@@ -9,6 +9,10 @@
           <span class="logo-head text-white bg-red-600 rounded pr-1 pl-4 pt-2 inline-block">a</span>
           <span class="logo-body pt-2 text-white">lpas</span>
         </div>
+        <ul class="flex text-white">
+            <li class="mx-2"><a class="hover:underline" href="/">Home</a></li>
+            <li class="mx-2"><a class="hover:underline" href="/login">Login</a></li>
+        </ul>
       </div>
     </header>
     <div class="flex-1 text-white flex items-center">

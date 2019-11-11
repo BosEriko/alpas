@@ -9,6 +9,10 @@
           <span class="logo-head text-white bg-red-600 rounded pr-1 pl-4 pt-2 inline-block">a</span>
           <span class="logo-body pt-2 text-white">lpas</span>
         </div>
+        <ul class="flex text-white">
+            <li class="mx-2"><a class="hover:underline" href="/">Home</a></li>
+            <li class="mx-2"><a class="hover:underline" href="/register">Register</a></li>
+        </ul>
       </div>
     </header>
     <div class="flex-1 text-white flex items-center">
@@ -30,7 +34,7 @@
           @enderror
           <div>
             <input class="form-check-input mb-10" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-            <label class="form-check-label" for="remember">
+            <label class="form-check-label ml-1" for="remember">
               {{ __('Remember Me') }}
             </label>
           </div>
