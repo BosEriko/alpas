@@ -60,32 +60,9 @@
             {{ data.description }}
           </p>
           <div class="mt-5">
-              <PostTextarea />
+              <PostTextarea :band="id" :user="user" />
           </div>
-          <ul class="flex flex-col mt-5">
-            <!-- post -->
-            <li class="flex mb-5">
-              <div class="w-20"><img src="https://i.imgur.com/yCBZppP.png" class="w-full bg-white rounded" alt="profile-picture" /></div>
-              <div class="ml-5 p-5 rounded bg-gray-800 flex-1">
-                <h4 class="text-lg font-bold">
-                  <span>Linkin Park</span>
-                  <span class="ml-1"><i class="fa fa-fw fa-check-circle" aria-hidden="true"></i></span>
-                </h4>
-                <p class="my-3">What time did the man go to the dentist? Tooth hurt-y.</p>
-                <ul class="flex text-sm text-gray-500">
-                  <li class="mr-3">
-                    <span><i class="fa fa-fw fa-clock-o" aria-hidden="true"></i></span>
-                    <span>8:01pm</span>
-                  </li>
-                  <li>
-                    <span><i class="fa fa-fw fa-calendar" aria-hidden="true"></i></span>
-                    <span>August 5, 2019</span>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <!-- /post -->
-          </ul>
+          <PostItems :post="id" />
         </div>
       </div>
     </div>
@@ -94,11 +71,13 @@
 
 <script>
   import PostTextarea from './PostTextareaComponent.vue'
+  import PostItems from './PostItemsComponent.vue'
   export default {
     components: {
-        PostTextarea
+        PostTextarea,
+        PostItems
     },
-    props: ['id'],
+    props: ['id', 'user'],
     mounted() {
       axios.get('/band/'+this.id).then(res => this.data = res.data)
       let coverPhoto = document.getElementById("cover-photo");

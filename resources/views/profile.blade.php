@@ -18,7 +18,7 @@
     </div>
   </header>
   <div id="app">
-    <profile-component id="{{ Request::route('id') }}"></profile-component>
+    <profile-component id="{{ Request::route('id') }}" user="{{ Auth::user()->id }}"></profile-component>
   </div>
   <footer class="text-white text-center pb-5">
     Alpas &copy; <script>document.write(new Date().getFullYear())</script>

@@ -2081,8 +2081,10 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/posts/' + this.post).then(function (res) {
-      return _this.posts = res.data;
+    axios.get('/posts').then(function (res) {
+      return _this.posts = res.data.reverse().filter(function (post) {
+        return post.band_id === _this.post;
+      });
     });
     axios.get('/users').then(function (res) {
       return _this.users = res.data;
@@ -2122,7 +2124,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['band', 'user'],
   mounted: function mounted() {
     console.log("Post Textarea is mounted.");
   }
@@ -2140,29 +2147,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PostTextareaComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostTextareaComponent.vue */ "./resources/js/components/PostTextareaComponent.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _PostItemsComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostItemsComponent.vue */ "./resources/js/components/PostItemsComponent.vue");
 //
 //
 //
@@ -2235,11 +2220,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    PostTextarea: _PostTextareaComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    PostTextarea: _PostTextareaComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    PostItems: _PostItemsComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ['id'],
+  props: ['id', 'user'],
   mounted: function mounted() {
     var _this = this;
 
@@ -37978,101 +37965,131 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("form", { attrs: { method: "POST", action: "/post" } }, [
+    _c("textarea", {
+      staticClass:
+        "w-full rounded-t bg-gray-800 p-5 mb-0 align-bottom text-white",
+      attrs: { placeholder: "Say something...", name: "content" }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      staticClass: "hidden",
+      attrs: { name: "post_date" },
+      domProps: {
+        value: new Date()
+          .toJSON()
+          .slice(0, 10)
+          .replace(/-/g, "/")
+      }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      staticClass: "hidden",
+      attrs: { name: "post_time" },
+      domProps: { value: new Date().toTimeString().split(" ")[0] }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      staticClass: "hidden",
+      attrs: { name: "band_id" },
+      domProps: { value: _vm.band }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      staticClass: "hidden",
+      attrs: { name: "user_id" },
+      domProps: { value: _vm.user }
+    }),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("textarea", {
-        staticClass:
-          "w-full rounded-t bg-gray-800 p-5 mb-0 align-bottom text-white",
-        attrs: { placeholder: "Say something..." }
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "bg-gray-800 p-5 rounded-b flex items-center" },
-        [
-          _c("ul", { staticClass: "flex text-xl hidden" }, [
-            _c("li", { staticClass: "mr-3" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "smooth text-gray-500 hover:text-white",
-                  attrs: { href: "#" }
-                },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-fw fa-picture-o",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "mr-3" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "smooth text-gray-500 hover:text-white",
-                  attrs: { href: "#" }
-                },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-fw fa-smile-o",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "mr-3" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "smooth text-gray-500 hover:text-white",
-                  attrs: { href: "#" }
-                },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-fw fa-youtube-play",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c(
-                "a",
-                {
-                  staticClass: "smooth text-gray-500 hover:text-white",
-                  attrs: { href: "#" }
-                },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-fw fa-microphone",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]
-              )
-            ])
+    return _c(
+      "div",
+      { staticClass: "bg-gray-800 p-5 rounded-b flex items-center" },
+      [
+        _c("ul", { staticClass: "flex text-xl hidden" }, [
+          _c("li", { staticClass: "mr-3" }, [
+            _c(
+              "a",
+              {
+                staticClass: "smooth text-gray-500 hover:text-white",
+                attrs: { href: "#" }
+              },
+              [
+                _c("i", {
+                  staticClass: "fa fa-fw fa-picture-o",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]
+            )
           ]),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "ml-auto rounded bg-gray-500 text-gray-900 px-5 pb-1 pt-2 hover:bg-white smooth"
-            },
-            [_vm._v("Post")]
-          )
-        ]
-      )
-    ])
+          _c("li", { staticClass: "mr-3" }, [
+            _c(
+              "a",
+              {
+                staticClass: "smooth text-gray-500 hover:text-white",
+                attrs: { href: "#" }
+              },
+              [
+                _c("i", {
+                  staticClass: "fa fa-fw fa-smile-o",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "mr-3" }, [
+            _c(
+              "a",
+              {
+                staticClass: "smooth text-gray-500 hover:text-white",
+                attrs: { href: "#" }
+              },
+              [
+                _c("i", {
+                  staticClass: "fa fa-fw fa-youtube-play",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                staticClass: "smooth text-gray-500 hover:text-white",
+                attrs: { href: "#" }
+              },
+              [
+                _c("i", {
+                  staticClass: "fa fa-fw fa-microphone",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "ml-auto rounded bg-gray-500 text-gray-900 px-5 pb-1 pt-2 hover:bg-white smooth",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Post")]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -38151,48 +38168,60 @@ var render = function() {
           _vm._m(4)
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "ml-5 my-5 flex-1" }, [
-          _c(
-            "div",
-            {
-              staticClass: "text-shadow flex items-center",
-              attrs: { id: "namespace" }
-            },
-            [
-              _c("h4", { staticClass: "text-3xl lg:text-6xl" }, [
-                _vm._v(_vm._s(_vm.data.name))
-              ]),
-              _vm._v(" "),
-              parseInt(_vm.data.verified)
-                ? _c(
-                    "span",
-                    {
-                      staticClass: "text-xl lg:text-4xl ml-5",
-                      attrs: { title: "Verified" }
-                    },
-                    [
-                      _c("i", {
-                        staticClass: "fa fa-fw fa-check-circle",
-                        attrs: { "aria-hidden": "true" }
-                      })
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm._m(5),
-              _vm._v(" "),
-              _vm._m(6)
-            ]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "mt-5 text-sm" }, [
-            _vm._v("\n          " + _vm._s(_vm.data.description) + "\n        ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-5" }, [_c("PostTextarea")], 1),
-          _vm._v(" "),
-          _vm._m(7)
-        ])
+        _c(
+          "div",
+          { staticClass: "ml-5 my-5 flex-1" },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "text-shadow flex items-center",
+                attrs: { id: "namespace" }
+              },
+              [
+                _c("h4", { staticClass: "text-3xl lg:text-6xl" }, [
+                  _vm._v(_vm._s(_vm.data.name))
+                ]),
+                _vm._v(" "),
+                parseInt(_vm.data.verified)
+                  ? _c(
+                      "span",
+                      {
+                        staticClass: "text-xl lg:text-4xl ml-5",
+                        attrs: { title: "Verified" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-fw fa-check-circle",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._m(5),
+                _vm._v(" "),
+                _vm._m(6)
+              ]
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "mt-5 text-sm" }, [
+              _vm._v(
+                "\n          " + _vm._s(_vm.data.description) + "\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "mt-5" },
+              [_c("PostTextarea", { attrs: { band: _vm.id, user: _vm.user } })],
+              1
+            ),
+            _vm._v(" "),
+            _c("PostItems", { attrs: { post: _vm.id } })
+          ],
+          1
+        )
       ])
     ])
   ])
@@ -38334,65 +38363,6 @@ var staticRenderFns = [
         _c("span", { staticClass: "ml-1 hidden xl:inline" }, [_vm._v("Follow")])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "flex flex-col mt-5" }, [
-      _c("li", { staticClass: "flex mb-5" }, [
-        _c("div", { staticClass: "w-20" }, [
-          _c("img", {
-            staticClass: "w-full bg-white rounded",
-            attrs: {
-              src: "https://i.imgur.com/yCBZppP.png",
-              alt: "profile-picture"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ml-5 p-5 rounded bg-gray-800 flex-1" }, [
-          _c("h4", { staticClass: "text-lg font-bold" }, [
-            _c("span", [_vm._v("Linkin Park")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "ml-1" }, [
-              _c("i", {
-                staticClass: "fa fa-fw fa-check-circle",
-                attrs: { "aria-hidden": "true" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "my-3" }, [
-            _vm._v("What time did the man go to the dentist? Tooth hurt-y.")
-          ]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "flex text-sm text-gray-500" }, [
-            _c("li", { staticClass: "mr-3" }, [
-              _c("span", [
-                _c("i", {
-                  staticClass: "fa fa-fw fa-clock-o",
-                  attrs: { "aria-hidden": "true" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("span", [_vm._v("8:01pm")])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("span", [
-                _c("i", {
-                  staticClass: "fa fa-fw fa-calendar",
-                  attrs: { "aria-hidden": "true" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("span", [_vm._v("August 5, 2019")])
-            ])
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true

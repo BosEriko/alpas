@@ -25,7 +25,7 @@
     export default {
         props: ['post'],
         mounted() {
-            axios.get('/posts/' + this.post).then(res => this.posts = res.data)
+            axios.get('/posts').then(res => this.posts = res.data.reverse().filter(post => post.band_id === this.post))
             axios.get('/users').then(res => this.users = res.data)
         },
         data: function () {

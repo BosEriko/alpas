@@ -14,7 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+
+        return response()->json($posts);
     }
 
     /**
@@ -52,7 +54,7 @@ class PostController extends Controller
         $new_post->user_id = $request->user_id;
         $new_post->save();
 
-        return response()->json($new_post);
+        return back();
     }
 
     /**
@@ -61,10 +63,9 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        $posts = Post::all()->where('band_id', $id);
-        return response()->json($posts);
+        //
     }
 
     /**

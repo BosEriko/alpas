@@ -37,7 +37,7 @@
       <bands-component user="{{ Auth::user()->id }}"></bands-component>
     </aside>
     <div class="flex-1">
-      <post-textarea></post-textarea>
+      <post-textarea band="0" user="{{ Auth::user()->id }}"></post-textarea>
       <post-items post="0"></post-items>
     </div>
   </div>
