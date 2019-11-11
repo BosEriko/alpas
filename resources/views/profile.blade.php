@@ -9,13 +9,8 @@
         <span class="logo-body pt-2 text-white">lpas</span>
       </div>
       <ul class="flex text-white">
-        <li class="mx-2">
-            <a class="dropdown-item hover:underline" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-        </li>
+        <li class="mx-2"><a class="hover:underline" href="/">Home</a></li>
+        <li class="mx-2"><a class="dropdown-item hover:underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>

@@ -25,7 +25,7 @@
               <span>{{ data.email }}</span>
             </li>
           </ul>
-          <div class="mt-16 px-3">
+          <div class="mt-16 px-3 hidden">
             <h4 class="text-xl mb-3 pb-3 px-2 border-b border-gray-700">Upcoming Gig</h4>
             <ul class="px-2">
               <li class="mb-3">
@@ -47,11 +47,11 @@
           <div class="text-shadow flex items-center" id="namespace">
             <h4 class="text-3xl lg:text-6xl">{{ data.name }}</h4>
             <span v-if="parseInt(data.verified)" class="text-xl lg:text-4xl ml-5" title="Verified"><i class="fa fa-fw fa-check-circle" aria-hidden="true"></i></span>
-            <button class="smooth shadow-md bg-red-600 hover:bg-red-700 border border-red-800 text-white font-bold pb-1 pt-2 px-4 ml-auto rounded text-sm lg:text-md ml-5 align-baseline">
+            <button class="hidden smooth shadow-md bg-red-600 hover:bg-red-700 border border-red-800 text-white font-bold pb-1 pt-2 px-4 ml-auto rounded text-sm lg:text-md ml-5 align-baseline">
               <span><i class="fa fa-fw fa-envelope" aria-hidden="true"></i></span>
               <span class="ml-1 hidden xl:inline">Message</span>
             </button>
-            <button class="smooth shadow-md bg-green-600 hover:bg-green-700 border border-green-800 text-white font-bold pb-1 pt-2 px-4 ml-3 rounded text-sm lg:text-md ml-5 align-baseline">
+            <button class="hidden smooth shadow-md bg-green-600 hover:bg-green-700 border border-green-800 text-white font-bold pb-1 pt-2 px-4 ml-3 rounded text-sm lg:text-md ml-5 align-baseline">
               <span><i class="fa fa-fw fa-plus" aria-hidden="true"></i></span>
               <span class="ml-1 hidden xl:inline">Follow</span>
             </button>

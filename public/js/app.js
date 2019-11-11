@@ -37886,7 +37886,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-16 px-3" }, [
+    return _c("div", { staticClass: "mt-16 px-3 hidden" }, [
       _c(
         "h4",
         { staticClass: "text-xl mb-3 pb-3 px-2 border-b border-gray-700" },
@@ -37937,7 +37937,7 @@ var staticRenderFns = [
       "button",
       {
         staticClass:
-          "smooth shadow-md bg-red-600 hover:bg-red-700 border border-red-800 text-white font-bold pb-1 pt-2 px-4 ml-auto rounded text-sm lg:text-md ml-5 align-baseline"
+          "hidden smooth shadow-md bg-red-600 hover:bg-red-700 border border-red-800 text-white font-bold pb-1 pt-2 px-4 ml-auto rounded text-sm lg:text-md ml-5 align-baseline"
       },
       [
         _c("span", [
@@ -37961,7 +37961,7 @@ var staticRenderFns = [
       "button",
       {
         staticClass:
-          "smooth shadow-md bg-green-600 hover:bg-green-700 border border-green-800 text-white font-bold pb-1 pt-2 px-4 ml-3 rounded text-sm lg:text-md ml-5 align-baseline"
+          "hidden smooth shadow-md bg-green-600 hover:bg-green-700 border border-green-800 text-white font-bold pb-1 pt-2 px-4 ml-3 rounded text-sm lg:text-md ml-5 align-baseline"
       },
       [
         _c("span", [
