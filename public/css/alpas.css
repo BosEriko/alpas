@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+
+
+.font-comfortaa {
+  font-family: 'Comfortaa', cursive;
+}
+.smooth {
+  transition: all .25s ease-in-out;
+}
+.filter {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  background-color: rgba(0,0,0,.25);
+}
+.dark-filter {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  background-color: rgba(0,0,0,.5);
+}
+.main-section {
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://imgur.com/pPPgEkK.gif');
+}
+.main-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.authentication {
+  background-image: url('https://i.imgur.com/uz1WTRP.png');
+  background-size: cover;
+  background-attachment: fixed;
+}
+.alpas-container {
+  max-width: 400px;
+  width: 100%;
+}
+#cover-photo {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+#cover-photo::before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-top: 40%;
+}
+.text-shadow {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+}
+textarea {
+  resize: none;
+}
+#profile aside #profile-picture {
+  width: 100%;
+  max-width: 200px;
+  margin: -15% auto 0;
+}
+#profile #namespace {
+  margin-top: 7rem;
+}
+@media (min-width: 1024px) {
+  #profile aside {
+    width: 350px;
+  }
+  #profile aside #profile-picture {
+    margin: -50% 0 0 0;
+    width: auto;
+    max-width: 100%;
+  }
+  #profile #namespace {
+    margin-top: -7rem;
+  }
+}
+.custom-scrollbar::-webkit-scrollbar {
+  height: 5px;
+}
+/* Track */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #4a5568;
+}
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+}
+/* Handle on hover */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+@media (min-width: 1024px) {
+  #home aside {
+    width: 350px;
+  }
+}
