@@ -22,7 +22,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/landing', function(){
     return view('alpas_templates.landing');
 });
+
+// Register
 Route::get('/register', function(){
     return view('alpas_templates.register');
 });
 
+// Login
+Route::get('/login', function(){
+    return view('alpas_templates.login');
+});
