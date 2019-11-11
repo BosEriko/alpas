@@ -1876,7 +1876,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {}
+  props: ['data'],
+  mounted: function mounted() {
+    console.log(this.data);
+  }
 });
 
 /***/ }),
@@ -1899,24 +1902,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Gigs: _Gigs_GigComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Gig: _Gigs_GigComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
-    console.log('Gigs mounted.');
+    var _this = this;
+
+    axios.get('/gigs').then(function (res) {
+      return _this.gigs = res.data;
+    });
+  },
+  data: function data() {
+    return {
+      gigs: ""
+    };
   }
 });
 
@@ -37228,87 +37229,87 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "card-flip bg-gray-800 hover:bg-gray-900 smooth px-5 py-3 text-white w-full rounded mt-5 shadow-md"
+      },
+      [_vm._v("Read More " + _vm._s(_vm.data.id))]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "ml-5 inline-block" }, [
-      _c("div", { staticClass: "card-container shadow-md" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "bg-white rounded front" }, [
-            _c("div", { staticClass: "p-5 h-full w-full" }, [
-              _c("div", {
-                staticClass: "h-full w-full bg-cover",
-                staticStyle: {
-                  "background-image": "url('https://i.imgur.com/yCBZppP.png')"
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "bg-gray-800 p-3 back text-white" }, [
-            _c("div", { staticClass: "p-3 h-full w-full" }, [
-              _c("ul", { staticClass: "flex flex-col h-full" }, [
-                _c("li", { staticClass: "mb-3 mt-auto" }, [
-                  _c("span", { staticClass: "mr-2" }, [
-                    _c("i", {
-                      staticClass: "fa fa-fw fa-money",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("₱ 15,000")])
+    return _c("div", { staticClass: "card-container shadow-md" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "bg-white rounded front" }, [
+          _c("div", { staticClass: "p-5 h-full w-full" }, [
+            _c("div", {
+              staticClass: "h-full w-full bg-cover",
+              staticStyle: {
+                "background-image": "url('https://i.imgur.com/yCBZppP.png')"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "bg-gray-800 p-3 back text-white" }, [
+          _c("div", { staticClass: "p-3 h-full w-full" }, [
+            _c("ul", { staticClass: "flex flex-col h-full" }, [
+              _c("li", { staticClass: "mb-3 mt-auto" }, [
+                _c("span", { staticClass: "mr-2" }, [
+                  _c("i", {
+                    staticClass: "fa fa-fw fa-money",
+                    attrs: { "aria-hidden": "true" }
+                  })
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "mb-3" }, [
-                  _c("span", { staticClass: "mr-2" }, [
-                    _c("i", {
-                      staticClass: "fa fa-fw fa-map-marker",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Manila")])
+                _c("span", [_vm._v("₱ 15,000")])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "mb-3" }, [
+                _c("span", { staticClass: "mr-2" }, [
+                  _c("i", {
+                    staticClass: "fa fa-fw fa-map-marker",
+                    attrs: { "aria-hidden": "true" }
+                  })
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "mb-3" }, [
-                  _c("span", { staticClass: "mr-2" }, [
-                    _c("i", {
-                      staticClass: "fa fa-fw fa-clock-o",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("8:00pm - 9:30pm")])
+                _c("span", [_vm._v("Manila")])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "mb-3" }, [
+                _c("span", { staticClass: "mr-2" }, [
+                  _c("i", {
+                    staticClass: "fa fa-fw fa-clock-o",
+                    attrs: { "aria-hidden": "true" }
+                  })
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "mb-auto" }, [
-                  _c("span", { staticClass: "mr-2" }, [
-                    _c("i", {
-                      staticClass: "fa fa-fw fa-calendar",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("December 24")])
-                ])
+                _c("span", [_vm._v("8:00pm - 9:30pm")])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "mb-auto" }, [
+                _c("span", { staticClass: "mr-2" }, [
+                  _c("i", {
+                    staticClass: "fa fa-fw fa-calendar",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("span", [_vm._v("December 24")])
               ])
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "card-flip bg-gray-800 hover:bg-gray-900 smooth px-5 py-3 text-white w-full rounded mt-5 shadow-md"
-        },
-        [_vm._v("Read More")]
-      )
+      ])
     ])
   }
 ]
@@ -37339,36 +37340,15 @@ var render = function() {
       staticClass:
         "pr-5 py-5 whitespace-no-wrap overflow-x-scroll overflow-y-visible custom-scrollbar"
     },
-    [
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs"),
-      _vm._v(" "),
-      _c("Gigs")
-    ],
-    1
+    _vm._l(_vm.gigs, function(gig) {
+      return _c(
+        "li",
+        { staticClass: "ml-5 inline-block" },
+        [_c("Gig", { attrs: { data: gig } })],
+        1
+      )
+    }),
+    0
   )
 }
 var staticRenderFns = []

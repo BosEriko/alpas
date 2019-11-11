@@ -1,30 +1,24 @@
 <template>
     <ul class="pr-5 py-5 whitespace-no-wrap overflow-x-scroll overflow-y-visible custom-scrollbar">
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
-        <Gigs />
+        <li class="ml-5 inline-block" v-for="gig in gigs">
+            <Gig :data="gig" />
+        </li>
     </ul>
 </template>
 
 <script>
-    import Gigs from './Gigs/GigComponent.vue'
+    import Gig from './Gigs/GigComponent.vue'
     export default {
         components: {
-            Gigs
+            Gig
         },
         mounted() {
-            console.log('Gigs mounted.')
+            axios.get('/gigs').then(res => this.gigs = res.data)
+        },
+        data: function () {
+            return {
+                gigs: ``
+            }
         }
     }
 </script>
