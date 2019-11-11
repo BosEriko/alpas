@@ -2038,7 +2038,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id'],
   mounted: function mounted() {
-    console.log(this.id);
+    var _this = this;
+
+    axios.get('/band/' + this.id).then(function (res) {
+      return _this.data = res.data;
+    });
+    var coverPhoto = document.getElementById("cover-photo");
+    window.addEventListener('scroll', function () {
+      coverPhoto.style.backgroundPosition = "center ".concat(window.pageYOffset / 2, "px");
+    });
+    tippy('#verified-badge', {
+      content: "Verified"
+    });
+  },
+  data: function data() {
+    return {
+      data: ""
+    };
   }
 });
 
@@ -37494,348 +37510,383 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "text-white" }, [
+      _c("div", {
+        style: "background-image: url('" + _vm.data.cover_photo_path + "')",
+        attrs: { id: "cover-photo" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "container mx-auto lg:flex mb-10" }, [
+        _c("aside", [
+          _c(
+            "div",
+            {
+              staticClass: "bg-gray-900 rounded p-3",
+              attrs: { id: "profile-picture" }
+            },
+            [
+              _c("img", {
+                staticClass: "bg-white rounded w-full",
+                attrs: {
+                  src: _vm.data.profile_photo_path,
+                  alt: "profile-picture"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("ul", { staticClass: "flex flex-col my-3 px-5" }, [
+            _c("li", { staticClass: "mb-3" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(_vm.data.genre))])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "mb-3" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(_vm.data.location))])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "mb-3" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("span", [_vm._v("+" + _vm._s(_vm.data.contact_number))])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _vm._m(3),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(_vm.data.email))])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(4)
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ml-5 my-5 flex-1" }, [
+          _c(
+            "div",
+            {
+              staticClass: "text-shadow flex items-center",
+              attrs: { id: "namespace" }
+            },
+            [
+              _c("h4", { staticClass: "text-3xl lg:text-6xl" }, [
+                _vm._v(_vm._s(_vm.data.name))
+              ]),
+              _vm._v(" "),
+              parseInt(_vm.data.verified)
+                ? _c("span", { staticClass: "text-xl lg:text-4xl ml-5" }, [
+                    _c("i", {
+                      staticClass: "fa fa-fw fa-check-circle",
+                      attrs: { id: "verified-badge", "aria-hidden": "true" }
+                    })
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._m(5),
+              _vm._v(" "),
+              _vm._m(6)
+            ]
+          ),
+          _vm._v(" "),
+          _c("p", { staticClass: "mt-5 text-sm" }, [
+            _vm._v("\n          " + _vm._s(_vm.data.description) + "\n        ")
+          ]),
+          _vm._v(" "),
+          _vm._m(7),
+          _vm._v(" "),
+          _vm._m(8)
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "text-white" }, [
-        _c("div", {
-          staticStyle: {
-            "background-image": "url('https://i.imgur.com/npDgqFC.png')"
-          },
-          attrs: { id: "cover-photo" }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "container mx-auto lg:flex mb-10" }, [
-          _c("aside", [
-            _c(
-              "div",
-              {
-                staticClass: "bg-gray-900 rounded p-3",
-                attrs: { id: "profile-picture" }
-              },
-              [
-                _c("img", {
-                  staticClass: "bg-white rounded w-full",
-                  attrs: {
-                    src: "https://i.imgur.com/yCBZppP.png",
-                    alt: "profile-picture"
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("ul", { staticClass: "flex flex-col my-3 px-5" }, [
-              _c("li", { staticClass: "mb-3" }, [
-                _c("span", { staticClass: "mr-2" }, [
-                  _c("i", {
-                    staticClass: "fa fa-fw fa-music",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("American Rock Band")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "mb-3" }, [
-                _c("span", { staticClass: "mr-2" }, [
-                  _c("i", {
-                    staticClass: "fa fa-fw fa-location-arrow",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("Agoura Hills, California, U.S.")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "mb-3" }, [
-                _c("span", { staticClass: "mr-2" }, [
-                  _c("i", {
-                    staticClass: "fa fa-fw fa-phone",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("+6393-538-80333")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("span", { staticClass: "mr-2" }, [
-                  _c("i", {
-                    staticClass: "fa fa-fw fa-envelope",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("span", [_vm._v("mail@linkinpark.com")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mt-16 px-3" }, [
-              _c(
-                "h4",
-                {
-                  staticClass: "text-xl mb-3 pb-3 px-2 border-b border-gray-700"
-                },
-                [_vm._v("Upcoming Gig")]
-              ),
-              _vm._v(" "),
-              _c("ul", { staticClass: "px-2" }, [
-                _c("li", { staticClass: "mb-3" }, [
-                  _c("span", { staticClass: "mr-2" }, [
-                    _c("i", {
-                      staticClass: "fa fa-fw fa-map-marker",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("MOA Arena")])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "mb-3" }, [
-                  _c("span", { staticClass: "mr-2" }, [
-                    _c("i", {
-                      staticClass: "fa fa-fw fa-calendar",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("December 11, 2019")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("span", { staticClass: "mr-2" }, [
-                    _c("i", {
-                      staticClass: "fa fa-fw fa-clock-o",
-                      attrs: { "aria-hidden": "true" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("8:00pm - 9:00pm")])
-                ])
-              ])
-            ])
+    return _c("span", { staticClass: "mr-2" }, [
+      _c("i", {
+        staticClass: "fa fa-fw fa-music",
+        attrs: { "aria-hidden": "true" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "mr-2" }, [
+      _c("i", {
+        staticClass: "fa fa-fw fa-location-arrow",
+        attrs: { "aria-hidden": "true" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "mr-2" }, [
+      _c("i", {
+        staticClass: "fa fa-fw fa-phone",
+        attrs: { "aria-hidden": "true" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "mr-2" }, [
+      _c("i", {
+        staticClass: "fa fa-fw fa-envelope",
+        attrs: { "aria-hidden": "true" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-16 px-3" }, [
+      _c(
+        "h4",
+        { staticClass: "text-xl mb-3 pb-3 px-2 border-b border-gray-700" },
+        [_vm._v("Upcoming Gig")]
+      ),
+      _vm._v(" "),
+      _c("ul", { staticClass: "px-2" }, [
+        _c("li", { staticClass: "mb-3" }, [
+          _c("span", { staticClass: "mr-2" }, [
+            _c("i", {
+              staticClass: "fa fa-fw fa-map-marker",
+              attrs: { "aria-hidden": "true" }
+            })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "ml-5 my-5 flex-1" }, [
-            _c(
-              "div",
-              {
-                staticClass: "text-shadow flex items-center",
-                attrs: { id: "namespace" }
-              },
-              [
-                _c("h4", { staticClass: "text-3xl lg:text-6xl" }, [
-                  _vm._v("Linkin Park")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-xl lg:text-4xl ml-5" }, [
-                  _c("i", {
-                    staticClass: "fa fa-fw fa-check-circle",
-                    attrs: { id: "verified-badge", "aria-hidden": "true" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "smooth shadow-md bg-red-600 hover:bg-red-700 border border-red-800 text-white font-bold pb-1 pt-2 px-4 ml-auto rounded text-sm lg:text-md ml-5 align-baseline"
-                  },
-                  [
-                    _c("span", [
-                      _c("i", {
-                        staticClass: "fa fa-fw fa-envelope",
-                        attrs: { "aria-hidden": "true" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "ml-1 hidden xl:inline" }, [
-                      _vm._v("Message")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "smooth shadow-md bg-green-600 hover:bg-green-700 border border-green-800 text-white font-bold pb-1 pt-2 px-4 ml-3 rounded text-sm lg:text-md ml-5 align-baseline"
-                  },
-                  [
-                    _c("span", [
-                      _c("i", {
-                        staticClass: "fa fa-fw fa-plus",
-                        attrs: { "aria-hidden": "true" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "ml-1 hidden xl:inline" }, [
-                      _vm._v("Follow")
-                    ])
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c("p", { staticClass: "mt-5 text-sm" }, [
-              _vm._v(
-                "\n          Linkin Park is an American rock band from Agoura Hills, California. The band's current lineup comprises vocalist/rhythm guitarist Mike Shinoda, lead guitarist Brad Delson, bassist Dave Farrell, DJ/keyboardist Joe Hahn and drummer Rob Bourdon, all of whom are founding members. Vocalists Mark Wakefield and Chester Bennington and bassist Kyle Christner are former members of the band.\n        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mt-5" }, [
-              _c("textarea", {
-                staticClass:
-                  "w-full rounded-t bg-gray-800 p-5 mb-0 align-bottom",
-                attrs: { placeholder: "Say something..." }
-              }),
-              _vm._v(" "),
+          _c("span", [_vm._v("MOA Arena")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "mb-3" }, [
+          _c("span", { staticClass: "mr-2" }, [
+            _c("i", {
+              staticClass: "fa fa-fw fa-calendar",
+              attrs: { "aria-hidden": "true" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("span", [_vm._v("December 11, 2019")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("span", { staticClass: "mr-2" }, [
+            _c("i", {
+              staticClass: "fa fa-fw fa-clock-o",
+              attrs: { "aria-hidden": "true" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("span", [_vm._v("8:00pm - 9:00pm")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass:
+          "smooth shadow-md bg-red-600 hover:bg-red-700 border border-red-800 text-white font-bold pb-1 pt-2 px-4 ml-auto rounded text-sm lg:text-md ml-5 align-baseline"
+      },
+      [
+        _c("span", [
+          _c("i", {
+            staticClass: "fa fa-fw fa-envelope",
+            attrs: { "aria-hidden": "true" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "ml-1 hidden xl:inline" }, [
+          _vm._v("Message")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass:
+          "smooth shadow-md bg-green-600 hover:bg-green-700 border border-green-800 text-white font-bold pb-1 pt-2 px-4 ml-3 rounded text-sm lg:text-md ml-5 align-baseline"
+      },
+      [
+        _c("span", [
+          _c("i", {
+            staticClass: "fa fa-fw fa-plus",
+            attrs: { "aria-hidden": "true" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "ml-1 hidden xl:inline" }, [_vm._v("Follow")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-5" }, [
+      _c("textarea", {
+        staticClass: "w-full rounded-t bg-gray-800 p-5 mb-0 align-bottom",
+        attrs: { placeholder: "Say something..." }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "bg-gray-800 p-5 rounded-b flex items-center" },
+        [
+          _c("ul", { staticClass: "flex text-xl flex-1" }, [
+            _c("li", { staticClass: "mr-3" }, [
               _c(
-                "div",
-                { staticClass: "bg-gray-800 p-5 rounded-b flex items-center" },
+                "a",
+                {
+                  staticClass: "smooth text-gray-500 hover:text-white",
+                  attrs: { href: "#" }
+                },
                 [
-                  _c("ul", { staticClass: "flex text-xl flex-1" }, [
-                    _c("li", { staticClass: "mr-3" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "smooth text-gray-500 hover:text-white",
-                          attrs: { href: "#" }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-fw fa-picture-o",
-                            attrs: { "aria-hidden": "true" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "mr-3" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "smooth text-gray-500 hover:text-white",
-                          attrs: { href: "#" }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-fw fa-smile-o",
-                            attrs: { "aria-hidden": "true" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "mr-3" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "smooth text-gray-500 hover:text-white",
-                          attrs: { href: "#" }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-fw fa-youtube-play",
-                            attrs: { "aria-hidden": "true" }
-                          })
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "smooth text-gray-500 hover:text-white",
-                          attrs: { href: "#" }
-                        },
-                        [
-                          _c("i", {
-                            staticClass: "fa fa-fw fa-microphone",
-                            attrs: { "aria-hidden": "true" }
-                          })
-                        ]
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "rounded bg-gray-500 text-gray-900 px-5 pb-1 pt-2 hover:bg-white smooth"
-                    },
-                    [_vm._v("Post")]
-                  )
+                  _c("i", {
+                    staticClass: "fa fa-fw fa-picture-o",
+                    attrs: { "aria-hidden": "true" }
+                  })
                 ]
               )
             ]),
             _vm._v(" "),
-            _c("ul", { staticClass: "flex flex-col mt-5" }, [
-              _c("li", { staticClass: "flex mb-5" }, [
-                _c("div", { staticClass: "w-20" }, [
-                  _c("img", {
-                    staticClass: "w-full bg-white rounded",
-                    attrs: {
-                      src: "https://i.imgur.com/yCBZppP.png",
-                      alt: "profile-picture"
-                    }
+            _c("li", { staticClass: "mr-3" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "smooth text-gray-500 hover:text-white",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fa fa-fw fa-smile-o",
+                    attrs: { "aria-hidden": "true" }
                   })
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "ml-5 p-5 rounded bg-gray-800 flex-1" },
-                  [
-                    _c("h4", { staticClass: "text-lg font-bold" }, [
-                      _c("span", [_vm._v("Linkin Park")]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "ml-1" }, [
-                        _c("i", {
-                          staticClass: "fa fa-fw fa-check-circle",
-                          attrs: { "aria-hidden": "true" }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "my-3" }, [
-                      _vm._v(
-                        "What time did the man go to the dentist? Tooth hurt-y."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "flex text-sm text-gray-500" }, [
-                      _c("li", { staticClass: "mr-3" }, [
-                        _c("span", [
-                          _c("i", {
-                            staticClass: "fa fa-fw fa-clock-o",
-                            attrs: { "aria-hidden": "true" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("8:01pm")])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("span", [
-                          _c("i", {
-                            staticClass: "fa fa-fw fa-calendar",
-                            attrs: { "aria-hidden": "true" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("August 5, 2019")])
-                      ])
-                    ])
-                  ]
-                )
-              ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "mr-3" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "smooth text-gray-500 hover:text-white",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fa fa-fw fa-youtube-play",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "smooth text-gray-500 hover:text-white",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fa fa-fw fa-microphone",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "rounded bg-gray-500 text-gray-900 px-5 pb-1 pt-2 hover:bg-white smooth"
+            },
+            [_vm._v("Post")]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "flex flex-col mt-5" }, [
+      _c("li", { staticClass: "flex mb-5" }, [
+        _c("div", { staticClass: "w-20" }, [
+          _c("img", {
+            staticClass: "w-full bg-white rounded",
+            attrs: {
+              src: "https://i.imgur.com/yCBZppP.png",
+              alt: "profile-picture"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ml-5 p-5 rounded bg-gray-800 flex-1" }, [
+          _c("h4", { staticClass: "text-lg font-bold" }, [
+            _c("span", [_vm._v("Linkin Park")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "ml-1" }, [
+              _c("i", {
+                staticClass: "fa fa-fw fa-check-circle",
+                attrs: { "aria-hidden": "true" }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "my-3" }, [
+            _vm._v("What time did the man go to the dentist? Tooth hurt-y.")
+          ]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "flex text-sm text-gray-500" }, [
+            _c("li", { staticClass: "mr-3" }, [
+              _c("span", [
+                _c("i", {
+                  staticClass: "fa fa-fw fa-clock-o",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("span", [_vm._v("8:01pm")])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("span", [
+                _c("i", {
+                  staticClass: "fa fa-fw fa-calendar",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("span", [_vm._v("August 5, 2019")])
             ])
           ])
         ])

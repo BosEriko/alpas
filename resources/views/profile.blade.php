@@ -32,14 +32,5 @@
   </footer>
   <script src="https://unpkg.com/popper.js@1"></script>
   <script src="https://unpkg.com/tippy.js@5"></script>
-  <script>
-    let coverPhoto = document.getElementById("cover-photo");
-    window.addEventListener('scroll', () => {
-      coverPhoto.style.backgroundPosition= `center ${window.pageYOffset/2}px`;
-    });
-    tippy('#verified-badge', {
-      content: "Verified",
-    });
-  </script>
 </body>
 @endsection
