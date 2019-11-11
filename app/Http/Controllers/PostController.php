@@ -35,7 +35,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = array(
+            "content" => "required",
+            "post_date" => "required",
+            "post_time" => "required",
+            "band_id" => "required",
+            "user_id" => "required"
+        );
+        $this->validate($request, $rules);
+
+        $new_post = new Post;
+        $new_post->content = $request->content;
+        $new_post->post_date = $request->post_date;
+        $new_post->post_time = $request->post_time;
+        $new_post->band_id = $request->band_id;
+        $new_post->user_id = $request->user_id;
+        $new_post->save();
+
+        return response()->json($new_post);
     }
 
     /**
@@ -44,9 +61,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $posts = Post::all()->where('band_id', $id);
+        return response()->json($posts);
     }
 
     /**
