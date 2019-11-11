@@ -14,7 +14,9 @@ class GigController extends Controller
      */
     public function index()
     {
-        //
+        $gig = Gig::all();
+
+        return response()->json($gig);
     }
 
     /**
@@ -35,7 +37,20 @@ class GigController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = array(
+            "location" => "required",
+            "gig_date" => "required",
+            "gig_time" => "required"
+        );
+        $this->validate($request, $rules);
+
+        $new_gig = new Gig;
+        $new_gig->location = $request->location;
+        $new_gig->gig_date = $request->gig_date;
+        $new_gig->gig_time = $request->gig_time;
+        $new_gig->save();
+
+        return response()->json($new_gig);
     }
 
     /**
@@ -44,9 +59,10 @@ class GigController extends Controller
      * @param  \App\Gig  $gig
      * @return \Illuminate\Http\Response
      */
-    public function show(Gig $gig)
+    public function show($id)
     {
-        //
+        $gig = Gig::find($id);
+        return response()->json($gig);
     }
 
     /**

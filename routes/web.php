@@ -27,3 +27,7 @@ Route::get('/home', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
+
+Route::post('/gig', 'GigController@store');
+Route::get('/gigs', 'GigController@index');
+Route::get('/gig/{id}', 'GigController@show');
