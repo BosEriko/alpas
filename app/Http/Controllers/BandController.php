@@ -64,7 +64,7 @@ class BandController extends Controller
         $new_band->user_id = $request->user_id;
         $new_band->save();
 
-        return response()->json($new_band);
+        return redirect('/profile/'.$new_band->id);
     }
 
     /**
