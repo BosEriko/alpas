@@ -1848,6 +1848,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user'],
   mounted: function mounted() {
@@ -37402,20 +37405,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "ul",
-      { staticClass: "text-white" },
-      _vm._l(_vm.bands, function(band) {
-        return _c("li", [
-          _vm._v("\n            " + _vm._s(band.name) + "\n        ")
-        ])
-      }),
-      0
-    )
-  ])
+  return _vm.bands.length
+    ? _c("div", [
+        _c(
+          "h4",
+          {
+            staticClass:
+              "text-xl mb-3 mx-3 text-white pb-3 px-2 border-b border-gray-700"
+          },
+          [_vm._v("Bands")]
+        ),
+        _vm._v(" "),
+        _c(
+          "ul",
+          { staticClass: "text-white mx-3 px-3" },
+          _vm._l(_vm.bands, function(band, index) {
+            return _c("li", { staticClass: "mb-2 flex" }, [
+              _vm._m(0, true),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "hover:underline mr-auto",
+                  attrs: { href: "/profile/" + band.id }
+                },
+                [_vm._v(_vm._s(band.name))]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "hover:text-red-600 smooth",
+                  attrs: { href: "/delete-band/" + band.id }
+                },
+                [
+                  _c("i", {
+                    staticClass: "fa fa-fw fa-close",
+                    attrs: { "aria-hidden": "true" }
+                  })
+                ]
+              )
+            ])
+          }),
+          0
+        )
+      ])
+    : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "mr-2" }, [
+      _c("i", {
+        staticClass: "fa fa-fw fa-music",
+        attrs: { "aria-hidden": "true" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 

@@ -108,8 +108,10 @@ class BandController extends Controller
      * @param  \App\Band  $band
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Band $band)
+    public function destroy($id)
     {
-        //
+        $bandToDelete = Band::find($id);
+        $bandToDelete->delete();
+        return redirect('/home');
     }
 }
