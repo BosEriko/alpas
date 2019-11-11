@@ -19,21 +19,21 @@
           <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" placeholder="Full Name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus />
 
           @error('name')
-          <span class="invalid-feedback" role="alert">
+          <span class="invalid-feedback text-center block mb-10 text-red-700 text-sm" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
           <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" placeholder="Email" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" />
 
           @error('email')
-          <span class="invalid-feedback" role="alert">
+          <span class="invalid-feedback text-center block mb-10 text-red-700 text-sm" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
           <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" placeholder="Password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" />
 
           @error('password')
-          <span class="invalid-feedback" role="alert">
+          <span class="invalid-feedback text-center block mb-10 text-red-700 text-sm" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror

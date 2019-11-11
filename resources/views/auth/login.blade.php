@@ -18,13 +18,13 @@
           @csrf
           <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" placeholder="Email" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
           @error('email')
-          <span class="invalid-feedback" role="alert">
+          <span class="invalid-feedback text-center block mb-10 text-red-700 text-sm" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
           <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-10" placeholder="Password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
           @error('password')
-          <span class="invalid-feedback" role="alert">
+          <span class="invalid-feedback text-center block mb-10 text-red-700 text-sm" role="alert">
             <strong>{{ $message }}</strong>
           </span>
           @enderror
