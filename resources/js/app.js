@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('gigs-component', require('./components/GigsComponent.vue').default);
 Vue.component('profile-component', require('./components/ProfileComponent.vue').default);
+Vue.component('bands-component', require('./components/BandsComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

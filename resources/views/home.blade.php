@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<body class="font-comfortaa bg-gray-900" id="home">
+<body class="font-comfortaa bg-gray-900" id="home"><div id="app">
   <script src="https://pingmin-tech.com/content/flipcard/flipcard.js"></script>
   <link rel="stylesheet" type="text/css" href="https://pingmin-tech.com/content/flipcard/flipcard.css" />
   <header class="bg-gray-800">
@@ -18,16 +18,20 @@
       </ul>
     </div>
   </header>
-  <div class="bg-gray-700 mb-5" id="app">
+  <div class="bg-gray-700 mb-5">
     <div class="mx-auto container pt-5 text-white">
       <h4 class="font-bold">Upcoming Gigs</h4>
+      <gigs-component></gigs-component>
     </div>
-    <gigs-component></gigs-component>
   </div>
   <div class="container mx-auto lg:flex mb-10">
     <aside>
       <div class="px-3 text-white">
-        <a href="/create-band" class="smooth hover:bg-white bg-red-600 text-white hover:text-red-600 font-bold p-3 rounded block text-center">Create a Band</a>
+        <a href="/create-band" class="smooth hover:bg-white bg-red-600 text-white hover:text-red-600 font-bold p-3 rounded block text-center mb-5">Create a Band</a>
+      </div>
+      <h4 class="text-xl mb-3 mx-3 text-white pb-3 px-2 border-b border-gray-700">Your Bands</h4>
+      <div class="mx-3 px-3">
+          <bands-component user="{{ Auth::user()->id }}"></bands-component>
       </div>
     </aside>
     <div class="flex-1">
@@ -79,5 +83,5 @@
       });
     });
   </script>
-</body>
+</div></body>
 @endsection

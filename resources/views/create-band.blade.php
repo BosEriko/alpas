@@ -21,7 +21,6 @@
       <div class="container mx-auto my-10">
         <h4 class="text-center mb-5 text-xl">Create a Band</h4>
         <form method="POST" action="/band">
-          @csrf
           <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" name="name" placeholder="Name" autofocus />
           <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" name="genre" placeholder="Genre" />
           <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" name="profile_photo_path" placeholder="Profile Photo" />
@@ -32,7 +31,7 @@
           <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" name="email" placeholder="Email" type="email" />
           <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" name="contact_number" placeholder="Contact Number" />
           <input class="hidden" name="user_id" value="{{ Auth::user()->id }}" />
-          <button type="submit" class="smooth bg-white hover:bg-red-600 hover:text-white text-red-600 font-bold p-3 rounded w-full">Login</button>
+          <button type="submit" class="smooth bg-white hover:bg-red-600 hover:text-white text-red-600 font-bold p-3 rounded w-full">Create Band</button>
         </form>
       </div>
     </div>
