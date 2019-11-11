@@ -16,7 +16,7 @@
         <h4 class="text-center mb-5 text-xl">Log into alpas</h4>
         <form method="POST" action="{{ route('login') }}">
           @csrf
-          <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" placeholder="email" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+          <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" placeholder="Email" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
           @error('email')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -29,17 +29,14 @@
           </span>
           @enderror
           <div>
-            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
+            <input class="form-check-input mb-10" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
             <label class="form-check-label" for="remember">
               {{ __('Remember Me') }}
             </label>
-
           </div>
           <button type="submit" class="smooth bg-white hover:bg-red-600 hover:text-white text-red-600 font-bold p-3 rounded w-full">Login</button>
-
           @if (Route::has('password.request'))
-          <a class="btn btn-link" href="{{ route('password.request') }}">
+          <a class="text-center mt-5 block hover:underline" href="{{ route('password.request') }}">
             {{ __('Forgot Your Password?') }}
           </a>
           @endif
