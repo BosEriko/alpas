@@ -24,6 +24,13 @@ Route::get('/home', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/create-band', function () {
+    if(Auth::check()) {
+        return view('create-band');
+    }
+    return view('welcome');
+})->name('home');
+
 Route::get('/profile/{id}', function ($id) {
     return view('profile',['id'=>$id]);
 });

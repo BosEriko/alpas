@@ -29,13 +29,7 @@
   <div class="container mx-auto lg:flex mb-10">
     <aside>
       <div class="px-3 text-white">
-        <h4 class="text-xl mb-3 pb-3 px-2 border-b border-gray-700">Trending Now</h4>
-        <ul class="px-2 mb-5">
-          <li>
-            <span class="mr-2"><i class="fa fa-fw fa-hashtag" aria-hidden="true"></i></span>
-            <span>Slipknot</span>
-          </li>
-        </ul>
+        <a href="/create-band" class="smooth hover:bg-white bg-red-600 text-white hover:text-red-600 font-bold p-3 rounded block text-center">Create a Band</a>
       </div>
     </aside>
     <div class="flex-1">
