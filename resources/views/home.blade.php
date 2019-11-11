@@ -18,14 +18,14 @@
       </ul>
     </div>
   </header>
-  <div class="bg-gray-700 mb-5">
+  <div class="bg-gray-700 hidden">
     <div class="mx-auto container pt-5 text-white">
       <h4 class="font-bold">Upcoming Gigs</h4>
       <gigs-component></gigs-component>
     </div>
   </div>
-  <div class="container mx-auto lg:flex mb-10">
-    <aside>
+  <div class="container mt-10 mx-auto lg:flex mb-10">
+    <aside class="lg:mr-5">
       <div class="px-3 text-white">
         <a href="/create-band" class="smooth hover:bg-white bg-red-600 text-white hover:text-red-600 font-bold p-3 rounded block text-center mb-5">Create a Band</a>
       </div>
