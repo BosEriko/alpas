@@ -37866,7 +37866,7 @@ var staticRenderFns = [
         "div",
         { staticClass: "bg-gray-800 p-5 rounded-b flex items-center" },
         [
-          _c("ul", { staticClass: "flex text-xl flex-1" }, [
+          _c("ul", { staticClass: "flex text-xl hidden" }, [
             _c("li", { staticClass: "mr-3" }, [
               _c(
                 "a",
@@ -37936,7 +37936,7 @@ var staticRenderFns = [
             "button",
             {
               staticClass:
-                "rounded bg-gray-500 text-gray-900 px-5 pb-1 pt-2 hover:bg-white smooth"
+                "ml-auto rounded bg-gray-500 text-gray-900 px-5 pb-1 pt-2 hover:bg-white smooth"
             },
             [_vm._v("Post")]
           )
