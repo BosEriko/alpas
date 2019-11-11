@@ -15,6 +15,7 @@
         <div class="alpas-container mx-auto">
           <h4 class="text-center mb-5 text-xl">Log into alpas</h4>
           <form method="POST" action="{{ route('login') }}">
+            @csrf
             <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" placeholder="email" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
             @error('email')
                 <span class="invalid-feedback" role="alert">

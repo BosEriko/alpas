@@ -15,6 +15,7 @@
         <div class="alpas-container mx-auto">
           <h4 class="text-center mb-5 text-xl">Register at alpas</h4>
           <form>
+            @csrf
             <input class="smooth w-full p-3 border-b-2 border-red-600 bg-transparent focus:border-teal-300 mb-5" placeholder="Full Name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus />
 
             @error('name')
