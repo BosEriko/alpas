@@ -38,30 +38,7 @@
     </aside>
     <div class="flex-1">
       <post-textarea></post-textarea>
-      <ul class="flex flex-col mt-5 text-white">
-        <!-- post -->
-        <li class="flex mb-5">
-          <div class="w-20"><img src="https://i.imgur.com/yCBZppP.png" class="w-full bg-white rounded" alt="profile-picture" /></div>
-          <div class="ml-5 p-5 rounded bg-gray-800 flex-1">
-            <h4 class="text-lg font-bold">
-              <span>Linkin Park</span>
-              <span class="ml-1"><i class="fa fa-fw fa-check-circle" aria-hidden="true"></i></span>
-            </h4>
-            <p class="my-3">What time did the man go to the dentist? Tooth hurt-y.</p>
-            <ul class="flex text-sm text-gray-500">
-              <li class="mr-3">
-                <span><i class="fa fa-fw fa-clock-o" aria-hidden="true"></i></span>
-                <span>8:01pm</span>
-              </li>
-              <li>
-                <span><i class="fa fa-fw fa-calendar" aria-hidden="true"></i></span>
-                <span>August 5, 2019</span>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <!-- /post -->
-      </ul>
+      <post-items post="0"></post-items>
     </div>
   </div>
   <footer class="text-white text-center pb-5">

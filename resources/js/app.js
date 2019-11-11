@@ -24,6 +24,7 @@ Vue.component('profile-component', require('./components/ProfileComponent.vue').
 Vue.component('bands-component', require('./components/BandsComponent.vue').default);
 Vue.component('list-of-users', require('./components/ListOfUsersComponent.vue').default);
 Vue.component('post-textarea', require('./components/PostTextareaComponent.vue').default);
+Vue.component('post-items', require('./components/PostItemsComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
