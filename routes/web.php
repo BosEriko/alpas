@@ -36,3 +36,4 @@ Route::get('/gig/{id}', 'GigController@show');
 
 Route::post('/band', 'BandController@store');
 Route::get('/bands', 'BandController@index');
+Route::get('/band/{id}', 'BandController@show');

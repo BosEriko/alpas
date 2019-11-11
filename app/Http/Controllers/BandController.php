@@ -73,9 +73,10 @@ class BandController extends Controller
      * @param  \App\Band  $band
      * @return \Illuminate\Http\Response
      */
-    public function show(Band $band)
+    public function show($id)
     {
-        //
+        $band = Band::find($id);
+        return response()->json($band);
     }
 
     /**
