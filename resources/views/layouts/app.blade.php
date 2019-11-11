@@ -17,6 +17,5 @@
 
   <!-- Styles -->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/alpas.css') }}" />
-</head>
 @yield('content')
 </html>

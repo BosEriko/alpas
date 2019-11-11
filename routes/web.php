@@ -24,8 +24,8 @@ Route::get('/home', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/profile', function () {
-    return view('profile');
+Route::get('/profile/{id}', function ($id) {
+    return view('profile',['id'=>$id]);
 });
 
 Route::get('/users', 'UserController@index');
