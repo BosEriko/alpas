@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Gig;
+use App\User;
 use Illuminate\Http\Request;
 
-class GigController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class GigController extends Controller
      */
     public function index()
     {
-        $gigs = Gig::all();
+        $users = User::all();
 
-        return response()->json($gigs);
+        return response()->json($users);
     }
 
     /**
@@ -37,41 +37,27 @@ class GigController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = array(
-            "location" => "required",
-            "gig_date" => "required",
-            "gig_time" => "required"
-        );
-        $this->validate($request, $rules);
-
-        $new_gig = new Gig;
-        $new_gig->location = $request->location;
-        $new_gig->gig_date = $request->gig_date;
-        $new_gig->gig_time = $request->gig_time;
-        $new_gig->save();
-
-        return response()->json($new_gig);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Gig  $gig
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $gig = Gig::find($id);
-        return response()->json($gig);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Gig  $gig
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gig $gig)
+    public function edit(User $user)
     {
         //
     }
@@ -80,10 +66,10 @@ class GigController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Gig  $gig
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gig $gig)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -91,10 +77,10 @@ class GigController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Gig  $gig
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gig $gig)
+    public function destroy(User $user)
     {
         //
     }

@@ -14,7 +14,9 @@ class BandController extends Controller
      */
     public function index()
     {
-        //
+        $bands = Band::all();
+
+        return response()->json($bands);
     }
 
     /**
@@ -35,7 +37,34 @@ class BandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = array(
+            "name" => "required",
+            "genre" => "required",
+            "profile_photo_path" => "required",
+            "cover_photo_path" => "required",
+            "verified" => "required",
+            "description" => "required",
+            "location" => "required",
+            "email" => "required",
+            "contact_number" => "required",
+            "user_id" => "required"
+        );
+        $this->validate($request, $rules);
+
+        $new_band = new Band;
+        $new_band->name = $request->name;
+        $new_band->genre = $request->genre;
+        $new_band->profile_photo_path = $request->profile_photo_path;
+        $new_band->cover_photo_path = $request->cover_photo_path;
+        $new_band->verified = $request->verified;
+        $new_band->description = $request->description;
+        $new_band->location = $request->location;
+        $new_band->email = $request->email;
+        $new_band->contact_number = $request->contact_number;
+        $new_band->user_id = $request->user_id;
+        $new_band->save();
+
+        return response()->json($new_band);
     }
 
     /**

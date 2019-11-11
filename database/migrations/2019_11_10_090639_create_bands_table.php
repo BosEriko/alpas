@@ -30,24 +30,6 @@ class CreateBandsTable extends Migration
                   ->on('users')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
-            $table->unsignedBigInteger('gig_id');
-            $table->foreign('gig_id')
-                  ->references('id')
-                  ->on('gigs')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->unsignedBigInteger('post_id');
-            $table->foreign('post_id')
-                  ->references('id')
-                  ->on('posts')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->unsignedBigInteger('follower_id');
-            $table->foreign('follower_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
