@@ -9,8 +9,14 @@
         <span class="logo-body pt-2 text-white">lpas</span>
       </div>
       <ul class="flex text-white">
-        <li class="mx-2"><a class="hover:underline" href="/login">Login</a></li>
-        <li class="mx-2"><a class="hover:underline" href="/register">Register</a></li>
+        @guest
+            <li class="mx-2"><a class="hover:underline" href="/login">Login</a></li>
+            @if (Route::has('register'))
+                <li class="mx-2"><a class="hover:underline" href="/register">Register</a></li>
+            @endif
+        @else
+            <li class="mx-2"><a class="hover:underline" href="/home">Home</a></li>
+        @endguest
       </ul>
     </div>
   </header>
