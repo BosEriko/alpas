@@ -14,8 +14,8 @@
           <span class="logo-body pt-2 text-white">lpas</span>
         </div>
         <ul class="flex text-white">
-          <li class="mx-2"><a class="hover:underline" href="/login.html">Login</a></li>
-          <li class="mx-2"><a class="hover:underline" href="/register.html">Register</a></li>
+          <li class="mx-2"><a class="hover:underline" href="/login">Login</a></li>
+          <li class="mx-2"><a class="hover:underline" href="/register">Register</a></li>
         </ul>
       </div>
     </header>
