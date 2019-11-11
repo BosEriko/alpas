@@ -29,7 +29,14 @@ Route::get('/create-band', function () {
         return view('create-band');
     }
     return view('welcome');
-})->name('home');
+})->name('create-band');
+
+Route::get('/list-of-users', function () {
+    if(Auth::check() && Auth::user()->role_id === "2") {
+        return view('list-of-users');
+    }
+    return view('welcome');
+})->name('list-of-users');
 
 Route::get('/profile/{id}', function ($id) {
     return view('profile',['id'=>$id]);

@@ -26,6 +26,11 @@
   </div>
   <div class="container mt-10 mx-auto lg:flex mb-10">
     <aside class="lg:mr-5">
+      @if(Auth::user()->role_id === "2")
+      <div class="px-3 text-white">
+          <a href="/list-of-users" class="smooth hover:bg-white bg-teal-600 text-white hover:text-teal-600 font-bold p-3 rounded block text-center mb-5">List of Users</a>
+      </div>
+      @endif
       <div class="px-3 text-white">
         <a href="/create-band" class="smooth hover:bg-white bg-red-600 text-white hover:text-red-600 font-bold p-3 rounded block text-center mb-5">Create a Band</a>
       </div>
