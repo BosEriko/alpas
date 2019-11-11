@@ -16,12 +16,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/landing', function(){
     return view('alpas_templates.landing');
 });
+Route::get('/register', function(){
+    return view('alpas_templates.register');
+});
+
