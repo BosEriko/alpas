@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/backdrop.css" />
 <body class="font-comfortaa bg-gray-900" id="profile">
   <header class="absolute top-0 left-0 right-0 z-20">
     <div class="container mx-auto flex my-10 items-center">
@@ -30,7 +28,5 @@
   <footer class="text-white text-center pb-5">
     Alpas &copy; <script>document.write(new Date().getFullYear())</script>
   </footer>
-  <script src="https://unpkg.com/popper.js@1"></script>
-  <script src="https://unpkg.com/tippy.js@5"></script>
 </body>
 @endsection

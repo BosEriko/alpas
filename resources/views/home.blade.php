@@ -2,9 +2,7 @@
 
 @section('content')
 <body class="font-comfortaa bg-gray-900" id="home">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
   <script src="https://pingmin-tech.com/content/flipcard/flipcard.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="https://pingmin-tech.com/content/flipcard/flipcard.css" />
   <header class="bg-gray-800">
     <div class="container mx-auto flex py-5 items-center">

@@ -2047,9 +2047,6 @@ __webpack_require__.r(__webpack_exports__);
     window.addEventListener('scroll', function () {
       coverPhoto.style.backgroundPosition = "center ".concat(window.pageYOffset / 2, "px");
     });
-    tippy('#verified-badge', {
-      content: "Verified"
-    });
   },
   data: function data() {
     return {
@@ -37578,12 +37575,19 @@ var render = function() {
               ]),
               _vm._v(" "),
               parseInt(_vm.data.verified)
-                ? _c("span", { staticClass: "text-xl lg:text-4xl ml-5" }, [
-                    _c("i", {
-                      staticClass: "fa fa-fw fa-check-circle",
-                      attrs: { id: "verified-badge", "aria-hidden": "true" }
-                    })
-                  ])
+                ? _c(
+                    "span",
+                    {
+                      staticClass: "text-xl lg:text-4xl ml-5",
+                      attrs: { title: "Verified" }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fa fa-fw fa-check-circle",
+                        attrs: { "aria-hidden": "true" }
+                      })
+                    ]
+                  )
                 : _vm._e(),
               _vm._v(" "),
               _vm._m(5),

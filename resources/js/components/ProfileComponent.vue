@@ -46,7 +46,7 @@
         <div class="ml-5 my-5 flex-1">
           <div class="text-shadow flex items-center" id="namespace">
             <h4 class="text-3xl lg:text-6xl">{{ data.name }}</h4>
-            <span v-if="parseInt(data.verified)" class="text-xl lg:text-4xl ml-5"><i id="verified-badge" class="fa fa-fw fa-check-circle" aria-hidden="true"></i></span>
+            <span v-if="parseInt(data.verified)" class="text-xl lg:text-4xl ml-5" title="Verified"><i class="fa fa-fw fa-check-circle" aria-hidden="true"></i></span>
             <button class="smooth shadow-md bg-red-600 hover:bg-red-700 border border-red-800 text-white font-bold pb-1 pt-2 px-4 ml-auto rounded text-sm lg:text-md ml-5 align-baseline">
               <span><i class="fa fa-fw fa-envelope" aria-hidden="true"></i></span>
               <span class="ml-1 hidden xl:inline">Message</span>
@@ -109,9 +109,6 @@
       let coverPhoto = document.getElementById("cover-photo");
       window.addEventListener('scroll', () => {
         coverPhoto.style.backgroundPosition= `center ${window.pageYOffset/2}px`;
-      });
-      tippy('#verified-badge', {
-        content: "Verified",
       });
     },
     data: function () {
