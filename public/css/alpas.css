@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
 
-input {
+input,
+textarea {
     outline: none !important;
 }
 .font-comfortaa {
