@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
 
-
+input {
+    outline: none !important;
+}
 .font-comfortaa {
   font-family: 'Comfortaa', cursive;
 }

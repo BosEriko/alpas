@@ -13,5 +13,8 @@
 
 Auth::routes();
 Route::get('/', function () {
-    return view('alpas_templates.landing');
+    return view('welcome');
+});
+Route::get('/home', function () {
+    return view('home');
 });
