@@ -10,6 +10,18 @@
         <span class="logo-head text-white bg-red-600 rounded pr-1 pl-4 pt-2 inline-block">a</span>
         <span class="logo-body pt-2 text-white">lpas</span>
       </div>
+      <ul class="flex text-white">
+        <li class="mx-2">
+            <a class="dropdown-item hover:underline" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+        </li>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+      </ul>
     </div>
   </header>
   <div class="bg-gray-700 mb-5">

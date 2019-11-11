@@ -12,9 +12,18 @@
 */
 
 Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/home', function () {
-    return view('home');
+    if(Auth::check()) {
+        return view('home');
+    }
+    return view('welcome');
+})->name('home');
+
+Route::get('/profile', function () {
+    return view('profile');
 });
