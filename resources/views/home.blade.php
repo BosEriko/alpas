@@ -35,7 +35,6 @@
         <a href="/create-band" class="smooth hover:bg-white bg-red-600 text-white hover:text-red-600 font-bold p-3 rounded block text-center mb-5">Create a Band</a>
       </div>
       @if(Auth::user()->role_id === "2")
-      <span class="hidden">Bands should be printed here!</span>
       <bands-component></bands-component>
       @endif
     </aside>
