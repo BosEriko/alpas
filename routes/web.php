@@ -39,8 +39,11 @@ Route::get('/list-of-users', function () {
 })->name('list-of-users');
 
 Route::get('/profile/{id}', function ($id) {
-    return view('profile',['id'=>$id]);
-});
+    if(Auth::check()) {
+        return view('profile',['id'=>$id]);
+    }
+    return view('welcome');
+})->name('profile');
 
 Route::get('/users', 'UserController@index');
 
