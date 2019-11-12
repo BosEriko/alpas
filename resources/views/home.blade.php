@@ -34,7 +34,9 @@
       <div class="px-3 text-white">
         <a href="/create-band" class="smooth hover:bg-white bg-red-600 text-white hover:text-red-600 font-bold p-3 rounded block text-center mb-5">Create a Band</a>
       </div>
-      <bands-component user="{{ Auth::user()->id }}"></bands-component>
+      @if(Auth::user()->role_id === "2")
+      <bands-component></bands-component>
+      @endif
     </aside>
     <div class="flex-1">
       <post-textarea band="0" user="{{ Auth::user()->id }}"></post-textarea>

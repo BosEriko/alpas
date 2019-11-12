@@ -13,10 +13,8 @@
 
 <script>
     export default {
-        props: ['user'],
         mounted() {
-            axios.get('/bands').then(res => this.bands = res.data.filter(band => band.user_id === this.user))
-            console.log("Bands ->", this.bands)
+            axios.get('/bands').then(res => this.bands = res.data)
         },
         data: function () {
             return {
