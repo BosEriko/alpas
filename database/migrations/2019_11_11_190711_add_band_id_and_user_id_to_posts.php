@@ -14,18 +14,8 @@ class AddBandIdAndUserIdToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger('band_id');
-            $table->foreign('band_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            $table->integer('band_id');
+            $table->integer('user_id');
         });
     }
 
